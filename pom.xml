@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.vaadin</groupId>
+    <artifactId>consuming-rest-apis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>Example of consuming REST apis from Java apps</name>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <!-- optional: use Java 8 -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- Here essentials used as dependency, more flexible method. If used as parent,
+             no dependencies are needed, nor plugins, but e.g. excluding something
+             is impossible.
+        -->
+        <dependency>
+            <groupId>org.vaadin</groupId>
+            <artifactId>vaadin-java-ee-essentials</artifactId>
+            <version>1.5</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId> 
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>        
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>v4.tahvonen.fi</id>
+            <url>http://v4.tahvonen.fi/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>
