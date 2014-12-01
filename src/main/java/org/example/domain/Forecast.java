@@ -14,6 +14,7 @@ public class Forecast {
     private Integer deg;
     private Integer clouds;
     private Double rain;
+    private Double snow;
 
     public Integer getDt() {
         return dt;
@@ -85,6 +86,14 @@ public class Forecast {
 
     public void setRain(Double rain) {
         this.rain = rain;
+    }
+
+    public Double getSnow() {
+        return snow;
+    }
+
+    public void setSnow(Double snow) {
+        this.snow = snow;
     }
 
 }
