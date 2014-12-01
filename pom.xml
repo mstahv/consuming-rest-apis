@@ -10,20 +10,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <!-- optional: use Java 8 -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
-        <!-- Here essentials used as dependency, more flexible method. If used as parent,
-             no dependencies are needed, nor plugins, but e.g. excluding something
-             is impossible.
-        -->
         <dependency>
             <groupId>org.vaadin</groupId>
             <artifactId>vaadin-java-ee-essentials</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
             <type>pom</type>
         </dependency>
         <dependency>
@@ -32,7 +27,16 @@
             <version>7.0</version>        
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.0.2.Final</version>
+            </plugin>        
+        </plugins>
+    </build>
+    
     <repositories>
         <repository>
             <id>v4.tahvonen.fi</id>
