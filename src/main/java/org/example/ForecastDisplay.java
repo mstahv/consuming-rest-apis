@@ -4,9 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 import org.example.domain.Forecast;
 import org.example.domain.ForecastResponse;
-import org.vaadin.maddon.label.Header;
-import org.vaadin.maddon.label.RichText;
-import org.vaadin.maddon.layouts.MVerticalLayout;
+import org.vaadin.viritin.label.Header;
+import org.vaadin.viritin.label.RichText;
+import org.vaadin.viritin.layouts.MVerticalLayout;
 
 /**
  *

@@ -7,8 +7,8 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.UI;
 import javax.inject.Inject;
-import org.vaadin.maddon.label.Header;
-import org.vaadin.maddon.layouts.MVerticalLayout;
+import org.vaadin.viritin.label.Header;
+import org.vaadin.viritin.layouts.MVerticalLayout;
 
 /**
  * A simple example how to consume REST apis with JAX-RS and display that in 

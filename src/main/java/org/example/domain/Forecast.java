@@ -1,6 +1,7 @@
 
 package org.example.domain;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Forecast {
@@ -95,5 +96,7 @@ public class Forecast {
     public void setSnow(Double snow) {
         this.snow = snow;
     }
+    
+    
 
 }
