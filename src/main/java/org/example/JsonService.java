@@ -25,7 +25,6 @@ public class JsonService {
     @PostConstruct
     protected void init() {
         client = ClientBuilder.newClient();
-        System.err.println("WeathermapAPI:\"" + apikey + "\"");
         //example query params: ?q=Turku&cnt=10&mode=json&units=metric
         target = client.target(
                 "http://api.openweathermap.org/data/2.5/forecast/daily").queryParam("cnt", "10")
