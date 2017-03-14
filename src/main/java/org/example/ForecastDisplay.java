@@ -1,44 +1,41 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+
+import com.vaadin.data.ValueProvider;
+import com.vaadin.ui.Grid;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.VerticalLayout;
 import org.example.domain.Forecast;
 import org.example.domain.ForecastResponse;
-import org.vaadin.viritin.label.Header;
-import org.vaadin.viritin.label.RichText;
-import org.vaadin.viritin.layouts.MVerticalLayout;
 
 /**
  *
  * @author Matti Tahvonen <matti@vaadin.com>
  */
-public class ForecastDisplay extends MVerticalLayout {
+public class ForecastDisplay extends Grid<Forecast> {
 
-    String mainTemplate = "Tomorrow in %s there will be %s";
-    String detailTemplate = "### %tD \n %s°, %s";
-
-    public ForecastDisplay() {
-    }
+    String captionTemplate = "Tomorrow in %s there will be %s";
 
     public void setForecast(ForecastResponse fr) {
-
-        removeAllComponents();
-        addComponents(
-                new Header(String.format(mainTemplate,
-                                fr.getCity().getName(),
-                                fr.getList().get(0).getWeather().get(0).
-                                getDescription()))
+        setCaption(
+                String.format(captionTemplate,
+                    fr.getCity().getName(),
+                    fr.getList().get(0).getWeather().get(0).
+                    getDescription())
         );
-        
-        Calendar cal = Calendar.getInstance();
-        for (Forecast f : fr.getList()) {
-            cal.add(Calendar.DAY_OF_MONTH, 1);
-            Date date = cal.getTime();
-            Double temperature = f.getTemp().getDay();
-            String desc = f.getWeather().get(0).getDescription();
-            String md = String.format(detailTemplate, date, temperature, desc);
-            addComponent(new RichText().withMarkDown(md));
-        }
+
+        removeAllColumns();
+        addColumn(fc -> {
+            int day = fr.getList().indexOf(fc);
+            return LocalDate.now().plusDays(day);
+        }).setCaption("Day");
+        addColumn(fc -> fc.getTemp().getDay() + "° C").setCaption("Temp");
+        addColumn(fc -> fc.getWeather().get(0).getDescription()).setCaption("Description");
+
+        setItems(fr.getList());
     }
 
 }

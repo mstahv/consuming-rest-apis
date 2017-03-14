@@ -16,35 +16,62 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.vaadin</groupId>
-            <artifactId>vaadin-java-ee-essentials</artifactId>
-            <version>1.13</version>
-            <type>pom</type>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax</groupId> 
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>        
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-themes</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-cdi</artifactId>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>8.0.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.0.2.Final</version>
-            </plugin>        
+            </plugin>
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>8.0.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update-widgetset</goal>
+                            <goal>compile</goal>
+                            <!-- Comment out compile-theme goal to use on-the-fly theme compilation
+                            <goal>update-theme</goal>
+                            <goal>compile-theme</goal>-->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <widgetsetMode>cdn</widgetsetMode>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     
-    <repositories>
-        <repository>
-            <id>v4.tahvonen.fi</id>
-            <url>http://v4.tahvonen.fi/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
 </project>
