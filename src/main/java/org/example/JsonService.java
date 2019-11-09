@@ -30,8 +30,7 @@ public class JsonService {
                 "http://api.openweathermap.org/data/2.5/forecast/daily").queryParam("cnt", "10")
                 .queryParam("mode", "json")
                 .queryParam("units", "metric")
-                .queryParam("appid", apikey)
-                ;
+                .queryParam("appid", apikey);
     }
 
     public ForecastResponse getForecast(String place) {
