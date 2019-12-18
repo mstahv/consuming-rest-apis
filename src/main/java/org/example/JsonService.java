@@ -15,7 +15,7 @@ import org.example.domain.ForecastResponse;
 @ApplicationScoped
 public class JsonService {
     
-    @Inject
+    @Autowired
     @ConfigProperty(name = "weathermap.apikey")
     private String apikey;
 
