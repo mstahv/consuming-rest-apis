@@ -33,6 +33,11 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-cdi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+         </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
