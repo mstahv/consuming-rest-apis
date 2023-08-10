@@ -4,6 +4,7 @@ package org.example.domain;
 import java.util.ArrayList;
 import lombok.Data;
 
+@Data
 public class ForecastResponse {
 
     private String cod;
